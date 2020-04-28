@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>load()</title>
+	<style>
+		.global{width: 1000px; margin: 0 auto;}
+		#haut{height: 80px; background:#dedede;}
+		#milieu{height: 500px;}
+		#bas{height: 50px; background: #dedede;}
+	</style>
+</head>
+<body>
+	<div class="global">
+		<div id="haut">Haut du site</div>
+		<div id="milieu">Milieu du site<br>
+			<ul>
+				<li><a href="#" id="onglet1">Onglet 1</a></li>
+				<li><a href="#" id="onglet2">Onglet 2</a></li>
+			</ul>
+			<div id="reception"></div>
+		</div>
+		<div id="bas">Bas du site</div>
+	</div>
+
+	<!--  CDN JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script>
+		$(document).ready( function(){ 
+
+            //Quand on clique sur le lien ayant l'id #onglet1, alors on charge onglet1.html ET on la place dans la zone ayant l'id #reception
+            $('#onglet1').load("onglet1.html");
+
+		} );
+	</script>
+</body>
+</html>

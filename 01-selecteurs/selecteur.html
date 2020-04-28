@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Selecteurs</title>
+</head>
+<body>
+	<h1>Bonjour</h1>
+
+	<div class="salut">Salut tout le monde</div>
+	<div class="salut">Salut tout le monde</div>
+	<div class="salut">Salut tout le monde</div>
+
+	<table border="1">
+		<tr>
+			<td>Case1</td>
+			<td>Case2</td>
+			<td>Case3</td>
+		</tr>
+		<tr>
+			<td>Case4</td>
+			<td>Case5</td>
+			<td>Case6</td>
+		</tr>
+	</table>
+	<section id="masection">Texte de ma section avec 'id'</section>
+	<span>Texte de mon span</span>
+
+    <!-- Jquery : chemin pour accéder au fichier téléchargé jquery -->
+    <!-- <script src="jquery/jquery.min.js"></script> -->
+
+    <!-- CDN JQUERY GOOGLE -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- SCRIPT PERSO => toujours en dernière position -->
+	<script>
+
+        $(document).ready( function(){ // cette ligne de code permet d'attendre le chargement du DOM
+
+            // selection par nom de balise :
+            var balise = $('span');
+                //console.log(balise);
+            balise.css('backgroundColor', 'orange');
+
+            // version js :
+            //var balise = document.getElementsByTagName('span');
+                //console.log('Balise :' + balise);
+               //balise[0].style.color = 'red';
+
+            // selection par sin id :
+            var monId = $('#masection');
+            monId.css('color', 'green');
+
+            // selection par sa classe :
+            var maClasse = $('.salut');
+                console.log(maClasse);
+            maClasse.css('color', 'red');
+
+            $('.salut:first').css('color', 'green'); // le premier element avec la classe '.salut'
+
+            // selection multiple :
+            var multi = $('h1, span, td:eq(2)');
+            // :eq(0) correspond à [0]  pour récupérer un élément en particulier lorsque l'on a plusieurs éléments
+            multi.css('backgroundColor', 'tomato');
+
+            // selection pour lui-même :
+            var test = $(this); // $(this) : fait référence à l'objet sur lequel on agit
+                console.log(test);
+
+            /* Récapitulatif des selecteurs :
+		        sa balise : $('nom_de_la_balise');
+		        son id : $('#id');
+		        son classe : $('.class');
+		        par lui-même : $(this);
+		        par le type : $('input:text');
+		        par tous les type : $(':radio');
+		        par l'attribut : $('img[alt]');
+		        par tous les attributs : $('[alt]');
+		        par le nom de l'attribut et sa valeur : $('img[title='paris']");
+		        multiple : $('h1, aside, #id, .class');
+	        */
+
+     } );
+
+    </script>
+
+</body>
+</html>

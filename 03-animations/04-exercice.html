@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Aniamtion jQuery</title>
+</head>
+<body>
+	<h1>Les animations "ANIMATE"</h1>
+	<p>Les animations de type 'animate agissent sur les propriétés de positionnement CSS !</p>
+	<p>Comme en CSS, les positionnements par défaut des éléments sont statics et on ne peut pas leur attribuer les propriétés : TOP, LEFT, RIGHT ou BOTTOM. Il faudra donc d'abord s'assurer que les positionnements des élements que l'on veut animer soient en position : 'relative', 'absolu' ou 'fixed' !</p><hr>
+
+	<p>Exercice 1 : Déplacer la div de 200px vers le bas</p>
+	<button id="btn-simple">Simple</button>
+	<div id="simple" style="width:200px; height: 100px; background: cadetblue; position:relative;">Simple</div><hr>
+
+	<p>Exercice 2 : animation double : déplacer la div de 200px vers le bas et 200px vers la droite (objectif => déplacement en diagonale..)</p>
+	<button id="btn-double">double</button>
+	<div id="double" style="width:200px; height: 100px; background: cadetblue; position:relative;">Simple</div><hr>
+
+	<p>Exercice 3 : agrandir (x2) la div en hauteur et largeur</p>
+	<button id="btn-agrandissement">agrandissement</button>
+	<div id="agrandissement" style="width:200px; height: 100px; background: cadetblue; position:relative;">Simple</div><hr>
+
+	<p>Exercice 4 : faire apparaitre et disparaitre la div (AVEC animate !!!)</p>
+	<button id="btn-toggle">toggle</button>
+	<div id="toggle" style="width:200px; height: 100px; background: cadetblue; position:relative;">Simple</div><hr>
+
+	<p>Exercice 5 : faire grossir la div PUIS faire grossir le texte</p>
+	<button id="btn-etape">etape</button>
+	<div id="etape" style="width:200px; height: 100px; background: cadetblue; position:relative;">Simple</div><hr>
+
+	<p>Exercice 6 : faire agrandir la hauteur, PUIS la largeur, puis la déplacer vers la droite, PUIS vers le haut, PUIS agrandir le texte PUIS faire disparaitre la div</p>
+	<button id="btn-multi">multi</button>
+	<div id="multi" style="width:200px; height: 100px; background: cadetblue; position:relative;">Simple</div><hr>
+
+	<!--  CDN JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		
+		$(document).ready(function(){
+            //script perso
+
+            //exercice 1
+            $('#btn-simple').click(function(){
+                $('#simple').animate({
+                    'top' : '200px'
+                });
+            });
+
+            //exercice 2
+            $('#btn-double').click(function(){
+                $('#double').animate({
+                    'top' : '200px',
+                    'left' : '200px'
+                });
+            });
+
+            //exercice 3
+            $('#btn-agrandissement').click(function(){
+                $('#agrandissement').animate({
+                    'width' : '400px',
+                    'height' : '200px'
+                });
+            });
+
+            //exercice 4
+            $('#btn-toggle').click(function(){
+                $('#toggle').animate({
+                    'width' : 'toggle',
+                    'height' : 'toggle'
+                });
+            });
+            
+            //exercice 5
+            $('#btn-etape').click(function(){
+                $('#etape').animate({
+                    'width' : '400px',
+                    'height' : '200px',
+                })
+
+                .animate({
+                    'font-size' : '300%'
+                });
+            });
+
+            //exercice 6
+            $('#btn-multi').click(function(){
+                $('#multi').animate({
+                    'height' : '200px',
+                });
+
+                $('#multi').animate({
+                    'width' : '400px',
+                });
+
+                $('#multi').animate({
+                    'left' : '400px',
+                });
+
+                $('#multi').animate({
+                    'bottom' : '300px',
+                });
+
+                $('#multi').animate({
+                    'font-size' : '300%',
+                });
+
+                $('#multi').animate({
+                    'opacity' : '0'
+                });
+            });
+        });
+        
+        
+	</script>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+</body>
+</html>

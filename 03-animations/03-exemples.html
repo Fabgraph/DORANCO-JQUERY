@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Exemple</title>
+</head>
+<body>
+	<h1>Exemples d'animations jQuery</h1>
+	<h2>Cliquez ici pour afficher une alerte !</h2>
+<hr>
+	<div id="ex1" style="border: 4px solid; width:100px; height: 100px;"></div>
+	<h3>Si tu cliques dans le carré ci-dessus, je vais disparaitre</h3>
+	<h3>Moi aussi !!</h3>
+<hr>
+	<div id="ex2" style="border: 4px solid; width:100px; height: 100px;"></div>
+	<p>Si tu double-cliques sur le carré ci-dessus, les h3 vont réapparaitre</p>
+<hr>
+	<form method="">
+		<label for="pseudo">Pseudo</label>
+		<input type="text" name="" id="pseudo">
+		<label for="mdp">Mot de passe</label>
+		<input type="text" name="" id="mdp">
+	</form>
+<hr>
+	<div id="barre1" style="cursor:pointer; background: cyan; border: 1px solid; text-align:center;">Cliquez pour descendre le rideau</div>
+	<div id="rideau1" style="display:none; height: 200px;background: tomato; border: 1px solid;"></div>
+<hr>
+	<div id="barre2" style="cursor:pointer; background: cyan; border: 1px solid; text-align:center;">Cliquez pour remonter le rideau</div>
+	<div id="rideau2" style="height: 200px;background: tomato; border: 1px solid;"></div>
+<hr>
+	<div id="barre3" style="cursor:pointer; background: cyan; border: 1px solid; text-align:center;">Cliquez pour monter/descendre le rideau</div>
+	<div id="rideau3" style=" height: 200px;background: tomato; border: 1px solid;"></div>
+
+	<!-- CDN Jquery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Script PERSO -->
+<script>
+$(document).ready( function(){ //chargement du DOM
+
+	//Cliquez sur le H2 pour afficher une alert() :
+	$('h2').click( function(){
+
+		alert('Bien vu !');
+	} ); 
+
+	//==============================================================
+	//faire disparaitre les h3 au click de la div #ex1
+	$('#ex1').click( function(){
+
+		$('h3').css({'display': 'none'});
+		//$('h3').hide(); //element.hide() : permet de cacher l'élément
+		//$('h3').fadeOut(); //element.fadeOut() : permet de cacher l'élément avec son opacity
+	} );
+
+	//==============================================================
+	//faire réapparaitre les h3 au double- click de la div #ex2
+	$('#ex2').dblclick( function(){
+
+		//$('h3').fadeIn(); //element.fadeIn() : permet d'afficher l'élément avec son opacity
+		//$('h3').show(); //element.show() : permet d'afficher l'élément
+		$('h3').css({'display': 'block'});
+	} );
+
+	//==============================================================
+	//Focus des inputs :
+	$('input').focus( function(){
+
+		//$('input').css({'background':'gold', 'border': '3px solid red'});
+		$(this).css({'background':'gold', 'border': '3px solid red'});
+	} );
+	$('input').blur( function(){
+
+		$(this).css({'background': '#fff', 'border' : '2px solid green'});
+	} );
+
+	//==============================================================
+	//SLIDE : 
+	//slideDown() : permet de faire glisser vers le bas
+	$('#barre1').click( function(){
+
+		$('#rideau1').slideDown();
+	} );
+	//slideUp() : permet de faire glisser vers le haut
+	$('#barre2').click( function(){
+
+		$('#rideau2').slideUp();
+	} );
+	//slideToggle() : permet de faire le glisser à la fois vers le haut et le bas
+	$('#barre3').click( function(){
+
+		$('#rideau3').slideToggle();
+	} );
+
+} );
+</script>
+</body>
+</html>

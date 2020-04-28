@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lien</title>
+</head>
+<body>
+    <p>Un objet du DOM est une représentation HTML. Les propriétés de cet objet représentent les attributs de cet élément</p>
+
+    <a href="http://www.google.com" id="monIdLien" class="maClassLien">Je suis un lien vers Google</a>
+
+    <!-- CDN JQUERY  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- SCRIPT PERSO -->
+    <script>
+        $(document).ready(function(){
+            var lien = $('a')[0];
+
+                console.log(lien); // affiche l'élément récupéré dans la console
+                console.log(lien.href); // affiche la valeur de l'attribute'href'
+                console.log(lien.id); // affiche la valeur de l'attribut 'id'
+                console.log(lien.className); // affiche la valeur de l'attribue 'class' (attention à l'écriture)
+                console.log(lien.textContent); //
+            
+        });
+    </script>
+</body>
+</html>

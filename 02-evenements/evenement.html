@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Selecteurs</title>
+</head>
+<body>
+	<h1>Bonjour</h1>
+
+	<div class="salut">Salut tout le monde</div>
+	<div class="salut">Salut tout le monde</div>
+	<div class="salut">Salut tout le monde</div>
+
+	<table border="1">
+		<tr>
+			<td>Case1</td>
+			<td>Case2</td>
+			<td>Case3</td>
+		</tr>
+		<tr>
+			<td>Case4</td>
+			<td>Case5</td>
+			<td>Case6</td>
+		</tr>
+	</table>
+	<section id="masection">Texte de ma section avec 'id'</section>
+	<span>Texte de mon span</span>
+
+	<!-- CDN JQUERY GOOGLE -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- SCRIPT PERSO => toujours en dernière position -->
+<script>
+$(document).ready( function(){ //cette ligne de code permet d'attendre le chargement du DOM
+
+// DOM : DOCUMENT OBJECT MODEL : Il s'agit de l'arborescence de tous les éléments d'une page web
+//Le DOM est une interface indépendant de tout langage de programmation et permet d'accéder et/ou de mettre à jour le contenu, la structure ou le style du document HTML.
+//Le document peut ensuite etre traité et les résultats de ces traitements peuvent etre réincorporés dans le document HTML tel qu'il sera présenté.
+
+	//Evenement click :
+
+		//version JAVASCRIPT :
+		//var test = document.getElementsByTagName('h1')[0];
+			//console.log(test);
+		document.getElementsByTagName('h1')[0].addEventListener('click', function(){
+				alert('Mode javascript') 
+			} );
+		//autre syntaxe version JAVASCRIPT :
+		document.getElementsByTagName('h1')[0].onclick = function(){
+			alert('Autre methode Javascript');
+		}
+
+		//version JQuery :
+		$('h1').on('click', function(){
+			alert( $(this).text() ); // Ici, $(this) fait référence au "h1" que l'on a récupéré
+			//text() : permet de récupérer le contenu de la balise
+		} );
+		//autre syntaxe version jquery :
+		$('h1').click( function(){
+
+			alert( $(this).text() + ' tout le monde');
+		} );
+
+		//evenement hover : 
+		var ok = $('.salut'); //récupère les 3 div avec la classe '.salut'
+			//console.log( ok );
+		ok.hover( function(){
+
+			$(this).css('background', 'tomato');
+		} );
+
+		// Liste des évènements Jquery :
+		// https://api.jquery.com/category/events/
+
+		//evenement : mouseenter/mouseleave :
+		$('table, span').mouseenter( function(){
+
+			$(this).css('background', 'cadetblue');
+		} );	
+		
+		$('table, span').mouseleave( function(){
+
+			$(this).css('background', 'none');
+		} );
+
+} );
+</script>
+
+</body>
+</html>

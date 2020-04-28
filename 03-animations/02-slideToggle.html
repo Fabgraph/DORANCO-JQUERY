@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>SlideToggle()</title>
+	<style>
+		img{
+			width: 400px; 
+			height: 300px;
+		}
+		section{
+			text-align: center; 
+			width: 1000px;
+			margin: 0 auto;
+			min-height: 700px;
+			background: #eee;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<h1>Jquery SlideToggle()</h1>
+		<div>
+			<button>Cliquez moi</button><br>
+			<img src="img/1.jpg" alt="image" title="image">
+			<img src="img/2.jpg" alt="image" title="image">
+			<img src="img/3.jpg" alt="image" title="image">
+			<img src="img/4.jpg" alt="image" title="image">
+		</div>
+	</section>
+
+	<!-- CDN Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+	<!-- Script PERSO -->
+	<script>
+        $(document).ready(function(){
+            $('button').click(function(){ // je récupère un bouton et quand je clique dessus j'exécute une fonction
+                $('img').slideToggle(); // slideToggle() : permet de faire glisser à la fois vers le haut et vers le bas
+            });
+
+        });
+
+	</script>
+</body>
+</html>
