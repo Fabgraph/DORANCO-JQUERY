@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>keyup / keydown / keypress</title>
+</head>
+<body>
+	<form method="" action="">
+		<label>Votre message : </label><br>
+		<textarea id="msg" name="message" cols="50" rows="20"></textarea>
+		<span></span>
+	</form>
+
+	<!-- CDN JQUERY  -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script>
+		//EXERCICE : 
+		//Objectif : afficher le keycode de la touche pressé dans le span.
+		//Lorsque la touche est appuyé (keydown), je mets un background rouge dans le textarea
+		//et lorsque je relache la touche (keyup), je mets un background jaune dans le textarea
+		$(document).ready( function(){
+
+            // mettre un background du textarea rouge lorsque la touche est enfoncée
+            $('#msg').keydown(function(){
+
+                $(this).css({'background' : 'tomato'});
+            });
+
+            // mettre un background du textarea rouge lorsque la touche est enfoncée
+            $('#msg').keyup(function(){
+
+                $(this).css({'background' : 'gold'});
+            });
+
+            //afficher le keycode de la touche pressée dans le span
+            $('#msg').keypress(function(event){ // on ajoute 'event' dans la fonction pour qu'elle analyse l'évènement
+
+                // event.which : représent le code de la touche pressée
+                $('span').text('La touche pressée à le code : ' + event.which);
+            });
+
+			
+
+		} );
+
+	</script>
+</body>
+</html>

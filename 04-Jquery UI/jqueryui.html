@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple Jquery UI</title>
+
+    <!-- STYLE CSS JQUERY UI -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+    <!-- CSS PERSO (toujours en dernier) -->
+    <!-- <style></style> ou <link src=""> -->
+    <style>
+        #accordion-resizer {
+  padding: 10px;
+  width: 350px;
+  height: 220px;
+}
+
+ #feedback { font-size: 1.4em; }
+#selectable .ui-selecting { background: #FECA40; }
+#selectable .ui-selected { background: #F39814; color: white; }
+#selectable { list-style-type: none; margin: 0; padding: 0; width: 450px; }
+#selectable li { margin: 3px; padding: 1px; float: left; width: 100px; height: 80px; font-size: 4em; text-align: center; }
+
+   </style>
+
+</head>
+<body>
+
+    <!-- Exemple accordeon -->
+
+  <div id="accordion">
+    <h3>Section 1</h3>
+    <div>
+      <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+    </div>
+    <h3>Section 2</h3>
+    <div>
+      <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+    </div>
+   	<h3>Section TEST</h3>
+    <div>
+      <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+    </div>
+  </div>
+
+<!-- Exemple touche clavier -->
+	<ol id="selectable">
+	  <li class="ui-state-default">1</li>
+	  <li class="ui-state-default">2</li>
+	  <li class="ui-state-default">3</li>
+	  <li class="ui-state-default">4</li>
+	  <li class="ui-state-default">5</li>
+	  <li class="ui-state-default">6</li>
+	  <li class="ui-state-default">7</li>
+	  <li class="ui-state-default">8</li>
+	  <li class="ui-state-default">9</li>
+	  <li class="ui-state-default">10</li>
+	  <li class="ui-state-default">11</li>
+	  <li class="ui-state-default">12</li>
+	</ol>
+
+
+    
+
+    <!-- CDN JQUERY (1er) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- CDN JQUERY UI (2ème) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- JQUERY-UI AVEC LE FICHIER TELECHARGE SUR INTERNET  -->
+    <!-- <script src="jquery-ui/jquery-ui.min.js"> -->
+
+    <!-- SCRIPT JS PERSO (toujours en dernier) -->
+    <script>
+
+        $( "#selectable" ).selectable();
+    
+        $( "#accordion" ).accordion({
+          animate: 1000
+        });
+    
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Exercice</title>
+	<style>
+    select{
+      padding: 10px;
+      font-size: 15px;
+    }
+    option{
+      font-size: 15px;
+    }
+  .result{
+    margin: 0 auto;
+    padding: 10px; 
+  }
+  .couleur{
+    padding: 20px;
+    color: #fff;
+    display: none;
+  }
+  .red{background: tomato;} 
+  .yellow{background: gold;} 
+  .blue{ background: cadetblue;}
+
+	</style>
+</head>
+<body>
+  <form>
+    <select id="selecteur" name="">
+       <option value="red">Rouge</option>
+       <option value="yellow">Jaune</option>
+       <option value="blue">Bleu</option>
+    </select>
+  </form>
+
+  <div class="result">
+    <div id="red" class="couleur red">  Voici une div rouge</div>
+    <div id="yellow" class="couleur yellow"> Voici une div jaune</div>
+    <div id="blue" class="couleur blue"> Voici une div bleue</div>
+  </div>
+
+  <!-- CDN JQUERY -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    //Lorsque vous CHANGER d'option, afficher la conséquence la div correspondante :
+    $(document).ready( function(){
+
+        $('#selecteur').change(function(){ // je récupère le <select> par son #id et lorsque je change la valeur du select on déclenche un fonction
+
+            //var valueOption = $(this).val();
+            //console.log($(this).val()); // affiche la value de l'<option> selectionnée
+            
+            //var valueOptionId = '#' + $(this).val();
+            //console.log('#' + $(this).val()); // affiche la value de l'<option> sélectionnée concaténé avec un '#' 
+
+            $('.couleur').hide(); // je cache toutes les div de la class '.couleur'
+
+            //$(valueOptionId).show(); // j'affiche la div par son #id
+            $('#' + $(this).val()).show(); // j'affiche la div par son #id
+
+
+
+        });
+
+
+    } );
+  </script>
+</body>
+</html>

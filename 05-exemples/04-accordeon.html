@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Accordion</title>
+	<style>
+
+html, body {
+  background: #C5CBD1;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+h2 {
+  color: #282F35;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+p {
+  color: #666666;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 20px;
+}
+
+.container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.liste {
+  margin: 90px 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.liste li {
+  list-style-type: none;
+  padding: 0;
+}
+
+.btn {
+  background: #FFFFFF;
+  border: none;
+  border-bottom: solid 1px #F2F2F2;
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 2em;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.item {
+  background: #F2F2F2;
+  overflow: hidden;
+  display: none;
+}
+
+.active{
+  background: brown;
+}
+
+	</style>
+</head>
+<body>
+<div class="container">
+  <ul class="liste">
+    <li>
+      <button class="btn"><h2>Titre 1</h2></button>
+      <div class="item">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </li>
+    <li>
+      <button class="btn"><h2>Titre 2</h2></button>
+      <div class="item">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </li>
+  </ul>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+  //faites en sortes que lrosque vous cliquez sur le bouton 'titre', le paragraphe associé s'affiche et inversement lorsque vous cliquez dessus 
+  $(document).ready(function(){
+
+    $('.btn').click(function(){ // je récupère le bouton .btn ET au click, je déclenche une fonction
+        
+        //$(this).next().slideToggle(); // je récupère le bouton cliqué '$(this)' et je récupère l'élément direct suivant et sur ce dernier, je lui applique un slideToggle()
+        // next() : récupère le prochain élément
+
+        if($(this).hasClass('active')){ // element.hasClass('nom_de_la_classe') : Si l'élément à la classe '.active'
+
+            $(this).removeClass('active'); // j'enlève la class '.active'
+            $(this).next().slideUp(); // je fais glisser vers le haut l'élément suivant le bouton cliqué
+
+        }
+        else{
+            
+            $(this).addClass('active'); // j'ajoute la class '.active'
+            $(this).next().slideDown(); // je fais glisser vers le bouton ($(this)) vers le bas
+        }
+    });
+  });
+</script>
+</body>
+</html>
