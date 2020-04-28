@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Slider</title>
+	<!-- CDN fontawesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+	<!-- css perso -->
+	<style type="text/css">
+		article{
+			display: flex;
+			height: 200px;
+			padding: 50px 10px;
+		}
+		.ifa{
+			cursor: pointer;
+			line-height: 200px;
+		}
+		img{
+			min-width: 350px;
+			margin: 10px;
+		}
+
+	</style>
+</head>
+<body>
+	<section>
+		<article>
+			<i class="fas fa-caret-left ifa"></i>
+			<img src="img/1.jpg" alt="image" title="image" class="bonjour">
+			<i class="fas fa-caret-right ifa"></i>
+		</article>			
+	</section>
+
+	<!--  CDN JQUERY -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script>
+		$(document).ready( function(){ 
+            
+
+            //objectif : réaliser un slider au click
+                //création de variables :
+                var gauche = $('.fa-caret-left');
+                    //console.log(gauche);
+                var droite = $('.fa-caret-right');
+                    //console.log(droite);
+                var image = $('.bonjour');
+                    //console.log(image);
+
+                //création d'un tableau pour stocker les images :
+                    //rappel => indice du tableau : 0 à 1 etc.
+                var tableImage = ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
+                        console.log(tableImage);
+
+                var longueurTable = tableImage.length; // on récpère la longueur du tableau
+                    console.log('Longueur du tableau des images : ' + longueurTable);
+
+                //Lorsque je clique sur la fleche de gauche je veux passer à l'élément précédent MAIS SI l'élément est en dessous de zero, je veux afficher le dernier élément du tableau image
+
+                //console.log(tableImage[1]);
+
+                //initialisation d'une variable i à zero qui va parcourir les indices de mon tableau
+                var i = 0;
+
+                gauche.click(function(){
+                    i--; // <=> i = i - 1; On enlève -1 à i
+                    console.log("TEST => " + i);
+
+                    if(i < 0){ // Si i est inférieur à zero, je réaffecte la valeur i par la longueur de mon tableau (4) -1 qui correspondra au dernier indice de mon tableau
+
+                        i = longueurTable - 1;
+
+                    }
+                    console.log(i);
+
+                    image.attr('src', 'img/' + tableImage[i]); // ici, on change la valeur de l'attribut 'src' de l'image en selectionnant l'élément le tableau et son indice
+                });
+
+                //Lorsque je clique sur la fleche de droite je veux passer à l'élément suivant MAIS SI l'élément est en dernière position, je veux afficher le premier élément du tableau image
+                droite.click(function(){
+                    i++; // i = i + 1 ; On rajoute +1 à la variable i
+                    console.log('test => ' + i);
+                    if(i == longueurTable){ // si i est égal à la longueur de mon tableau, je réaffecte la valeur de i à zero, qui correspond au premier élément de mon tableau
+                        i = 0;
+                    }
+                    console.log(i);
+                    image.attr('src', 'img/' + tableImage[i]);
+
+
+                });
+
+		});
+	</script>
+
+</body>
+</html>
